@@ -1,3 +1,6 @@
 
+import book_class
+
 if __name__ == "__main__":
-    print("hello world")
+    test = book_class.bookClass("myBook", 90, 100)
+    test.print_book()
