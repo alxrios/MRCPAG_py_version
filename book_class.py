@@ -6,7 +6,7 @@ class bookClass:
         if total_pages > 0:
             self.__total_pages = total_pages
         else:
-            self.__total_pages = 1 # default value is 1 for avoid division by
+            self.__total_pages = 1 # default value is 1 to avoid division by
             # zero in __calculate_progress function.
         if current_page <= total_pages:
             self.__current_page = current_page
@@ -63,21 +63,70 @@ class bookClass:
         bar += "]"
         
         return bar
+    
+    def set_title(self, new_title = ""):
+        """
+        Changes the book's title to new_title
+
+        Parameters
+        ----------
+        new_title : str, optional
+            Content of the new title. The default is "".
+
+        Returns
+        -------
+        None.
+
+        """
+        self.__title = new_title
         
-        
+    def set_current_p(self, new_current = 0):
+        """
+        Changes the current_page variable to the value passed in new_current.
+
+        Parameters
+        ----------
+        new_current : int, optional
+            New current page. The default is 0.
+
+        Returns
+        -------
+        None.
+
+        """
+        if new_current >= 0 and new_current <= self.__total_pages:
+            self.__current_page = new_current
 
 
+    def set_total_p(self, new_total = 1):
+        """
+        Actualizes the total number of pages.
+
+        Parameters
+        ----------
+        new_total : int, optional
+            New value for the variable total_pages. The default is 1.
+
+        Returns
+        -------
+        None.
+
+        """
+        if new_total > 0:
+            self.__total_pages = new_total
 
 
+# test = bookClass("myBook", 50, 100)
+# test.print_book()
+# test.set_title("newTitle")
+# test.set_current_p(70)
+# test.set_total_p(800)
+# test.set_total_p(-800)
+# test.set_current_p(-8)
 
 
-
-
-
-
-
-
-
+# Note: add white spaces in the hashtags bar, one space added until have ten
+#       elements counting whitespaces, hashtags and dots.
 
 
 
