@@ -52,19 +52,20 @@ class bookClass:
 
         """
         bar = "["
-        i = 0 # i is initialized to 0 preventing the case in which the for loop
+        i = 0 # i is initialized to 0 preventing the case in which the next for loop
         # does not initializes
-        for i in range(0, int(10*round(self.__current_page/self.__total_pages, 1))):
+        end_loop = int(10*round(self.__current_page/self.__total_pages, 1)) # Number
+        # of hashtags that will contain the progress bar.
+        for i in range(0, end_loop):
             bar += "#"
             
-        # New: let's try to add whitespaces until seven elements between 
-        # the brackets
-        new_init = i + 1 # Beginning of the next loop.
-        for i in range(new_init, 7):
-            bar += " "
-        
-        if i < 9:
-            bar += "..."
+        if end_loop == 0:
+            new_init = i # Beginning of the next loop.
+        else:
+            new_init = i + 1
+        # Now dots are added, up to ten.
+        for i in range(new_init, 10):
+            bar += "."
         
         bar += "]"
         
@@ -120,21 +121,6 @@ class bookClass:
         """
         if new_total > 0:
             self.__total_pages = new_total
-
-
-test = bookClass("myBook", 5, 100)
-test.print_book()
-# test.set_title("newTitle")
-# test.set_current_p(70)
-# test.set_total_p(800)
-# test.set_total_p(-800)
-# test.set_current_p(-8)
-
-
-# Note: add white spaces in the hashtags bar, one space added until have ten
-#       elements counting whitespaces, hashtags and dots.
-
-
 
 
 
