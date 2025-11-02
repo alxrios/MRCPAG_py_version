@@ -56,6 +56,12 @@ class bookClass:
         # does not initializes
         for i in range(0, int(10*round(self.__current_page/self.__total_pages, 1))):
             bar += "#"
+            
+        # New: let's try to add whitespaces until seven elements between 
+        # the brackets
+        new_init = i + 1 # Beginning of the next loop.
+        for i in range(new_init, 7):
+            bar += " "
         
         if i < 9:
             bar += "..."
@@ -116,8 +122,8 @@ class bookClass:
             self.__total_pages = new_total
 
 
-# test = bookClass("myBook", 50, 100)
-# test.print_book()
+test = bookClass("myBook", 5, 100)
+test.print_book()
 # test.set_title("newTitle")
 # test.set_current_p(70)
 # test.set_total_p(800)
