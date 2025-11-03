@@ -122,10 +122,40 @@ class bookClass:
         if new_total > 0:
             self.__total_pages = new_total
 
+    def get_title(self):
+        """
+        Returns the books title.
+        Returns
+        -------
+        str
+            Book's title.
 
+        """
+        return self.__title
 
+    def get_current_p(self):
+        """
+        Returns the current page.
 
+        Returns
+        -------
+        int
+            Book's current page.
 
+        """
+        return self.__current_page
+
+    def get_total_p(self):
+        """
+        Returns the total number of pages.
+
+        Returns
+        -------
+        int
+            Book's total number of pages.
+
+        """
+        return self.__total_pages
 
 
 
