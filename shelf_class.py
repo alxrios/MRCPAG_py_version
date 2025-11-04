@@ -74,3 +74,23 @@ class shelfClass:
             
             # Actualize the number of elements in the shelf.
             self.__set_n_elements(self.get_n_elements() + 1)
+        else:
+            # The index in which the new book is desired to be must be between
+            # the current size of the list.
+            if index < self.get_n_elements():
+                self.__shelf[index] = book_class.bookClass(b_title,
+                                                           b_current_p, 
+                                                           b_total_p, b_url)
+                
+    def print_shelf(self):
+        for i in range(0, self.get_n_elements()):
+            self.__shelf[i].print_book()
+            
+            
+# test = shelfClass(2)
+# test.get_n_elements()
+# test.add_book_console("newBook", 50, 100, "myUrl//")
+# test.get_n_elements()
+# test.add_book_console("otherBook", 40, 1000, "anotherUrl//", False, 0)
+# test.print_shelf()
+
