@@ -1,6 +1,6 @@
 
 class bookClass:
-    def __init__(self, title = "", current_page = 0, total_pages = 1, url = ""):
+    def __init__(self, title = "", current_page = 0, total_pages = 1, file_path = ""):
         self.__title = title
         self.__total_pages = total_pages
         if total_pages > 0:
@@ -12,7 +12,7 @@ class bookClass:
             self.__current_page = current_page
         else:
             self.__current_page = 0
-        self.__url = url
+        self.__file_path = file_path
         
     def print_book(self):
         """
@@ -28,7 +28,7 @@ class bookClass:
         print("Current page: ", self.__current_page)
         print("Total number of pages: ", self.__total_pages)
         print("Progress: ", self.__calculate_progress(), self.__progress_bar())
-        print("Url: ", self.__url)
+        print("File_path: ", self.__file_path)
         print("----------------------------------")
         
     def __calculate_progress(self):
@@ -121,6 +121,22 @@ class bookClass:
         """
         if new_total > 0:
             self.__total_pages = new_total
+    
+    def set_file_path(self, new_file_path = ""):
+        """
+        Sets the new file's path
+
+        Parameters
+        ----------
+        new_file_path : str, optional
+            Location in disk of the book file. The default is "".
+
+        Returns
+        -------
+        None.
+
+        """
+        self.__file_path = new_file_path
 
     def get_title(self):
         """
@@ -157,6 +173,17 @@ class bookClass:
         """
         return self.__total_pages
 
+    def get_file_path(self):
+        """
+        Returns the location of the book file.
+
+        Returns
+        -------
+        str
+            Location of the book file.
+
+        """
+        return self.__file_path
 
 
 
