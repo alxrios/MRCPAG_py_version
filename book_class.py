@@ -1,6 +1,6 @@
 
 class bookClass:
-    def __init__(self, title = "", current_page = 0, total_pages = 1, file_path = ""):
+    def __init__(self, title = "", current_page = 0, total_pages = 1, file_path = "", subject1 = "", subject2 = "", has_sub1 = False, has_sub2 = False):
         self.__title = title
         self.__total_pages = total_pages
         if total_pages > 0:
@@ -12,7 +12,13 @@ class bookClass:
             self.__current_page = current_page
         else:
             self.__current_page = 0
+            
         self.__file_path = file_path
+        self.__subject1 = subject1
+        self.__subject2 = subject2
+        self.__has_sub1 = has_sub1
+        self.__has_sub2 = has_sub2
+        
         
     def print_book(self):
         """
@@ -24,6 +30,10 @@ class bookClass:
 
         """
         print("----------------------------------")
+        if self.__has_sub1 and self.__has_sub2:
+            print(self.__subject1, "|", self.__subject2)
+        elif self.__has_sub1:
+            print(self.__subject1)
         print("Title: ", self.__title)
         print("Current page: ", self.__current_page)
         print("Total number of pages: ", self.__total_pages)
