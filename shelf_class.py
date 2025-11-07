@@ -96,6 +96,20 @@ class shelfClass:
             self.__shelf[i].print_book()
             
     def load_data(self, option = 1):
+        """
+        
+
+        Parameters
+        ----------
+        option : int, optional
+            Indicates the file which the user wants to load
+            Options range from 1 to 4. The default is 1.
+
+        Returns
+        -------
+        None.
+
+        """
         # First change the current directory if it's not located where the
         # files are in. (Files are supossed to be in a directory called 
         # mrcpag_files located in the previous folder where the script will be
@@ -168,3 +182,36 @@ class shelfClass:
                         counter = 0
             
 
+    def delete_book(self, index):
+        """
+        Deletes a book in the shelf located at the possition indicated by the
+        parameter index.
+
+        Parameters
+        ----------
+        index : int
+            Position of the book to be deleted.
+
+        Returns
+        -------
+        None.
+
+        """
+        index -= 1 # Lists start at zero but the information printed starts with 1
+        if index >= 0 and index < self.get_n_elements():
+            self.__shelf.pop(index)
+            self.__set_n_elements(self.get_n_elements() - 1)
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
