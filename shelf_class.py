@@ -83,14 +83,88 @@ class shelfClass:
                                                            b_total_p, b_url)
                 
     def print_shelf(self):
+        """
+        Prints the information of the books contained in the shelf.
+
+        Returns
+        -------
+        None.
+
+        """
         for i in range(0, self.get_n_elements()):
+            print(str(i + 1) + ".")
             self.__shelf[i].print_book()
             
+    def load_data(self, option = 1):
+        # First change the current directory if it's not located where the
+        # files are in. (Files are supossed to be in a directory called 
+        # mrcpag_files located in the previous folder where the script will be
+        # executed).
+        import os
+        splitted_dir = os.getcwd().split("\\")
+        if splitted_dir[len(splitted_dir) - 1] != "mrcpag_files":
+            os.chdir("../mrcpag_files")
+        # Once in the correct directory, we obtain the names of the files.
+        # The one that would be read will be determined by the parameter option.
+        list_of_files = os.listdir()
+        # Before load any new data, let's clear any existing one in the shelf.
+        self.__shelf = []
+        self.__set_n_elements(0)
+        if option == 1:
+            counter = 0 # Auxiliar variable for counting the lines read.
+            readList = [] # An auxiliar list for storing the lines.
+            with open(list_of_files[4]) as file:
+                for line in file:
+                    counter += 1
+                    readList.append(line.rstrip())
+                    if counter == 4:
+                        self.__shelf.append(book_class.bookClass(readList[0], int(readList[1]), 
+                                                             int(readList[2]), readList[3]))
+                        
+                        self.__set_n_elements(self.get_n_elements() + 1)
+                        readList = []
+                        counter = 0
+        
+        elif option == 2:
+            counter = 0
+            readList = []
+            with open(list_of_files[1]) as file:
+                for line in file:
+                    counter += 1
+                    readList.append(line.rstrip())
+                    if counter == 5:
+                        self.__shelf.append(book_class.bookClass(readList[1], int(readList[2]), 
+                                                             int(readList[3]), readList[4], readList[0], has_sub1 = True))
+                        self.__set_n_elements(self.get_n_elements() + 1)
+                        readList = []
+                        counter = 0
+        
+        elif option == 3:
+            counter = 0
+            readList = []
+            with open(list_of_files[2]) as file:
+                for line in file:
+                    counter += 1        
+                    readList.append(line.rstrip())
+                    if counter == 6:
+                        self.__shelf.append(book_class.bookClass(readList[2], int(readList[3]), int(readList[4]), readList[5], readList[0], readList[1], has_sub1 = True, has_sub2 = True))
+                        self.__set_n_elements(self.get_n_elements() + 1)
+                        readList = []
+                        counter = 0
+                        
+        if option == 4:
+            counter = 0 # Auxiliar variable for counting the lines read.
+            readList = [] # An auxiliar list for storing the lines.
+            with open(list_of_files[3]) as file:
+                for line in file:
+                    counter += 1
+                    readList.append(line.rstrip())
+                    if counter == 4:
+                        self.__shelf.append(book_class.bookClass(readList[0], int(readList[1]), 
+                                                             int(readList[2]), readList[3]))
+                        
+                        self.__set_n_elements(self.get_n_elements() + 1)
+                        readList = []
+                        counter = 0
             
-# test = shelfClass(2)
-# test.get_n_elements()
-# test.add_book_console("newBook", 50, 100, "myUrl//")
-# test.get_n_elements()
-# test.add_book_console("otherBook", 40, 1000, "anotherUrl//", False, 0)
-# test.print_shelf()
 
