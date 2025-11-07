@@ -152,7 +152,7 @@ class shelfClass:
                         readList = []
                         counter = 0
                         
-        if option == 4:
+        elif option == 4:
             counter = 0 # Auxiliar variable for counting the lines read.
             readList = [] # An auxiliar list for storing the lines.
             with open(list_of_files[3]) as file:
