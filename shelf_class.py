@@ -201,8 +201,56 @@ class shelfClass:
         if index >= 0 and index < self.get_n_elements():
             self.__shelf.pop(index)
             self.__set_n_elements(self.get_n_elements() - 1)
+            
+    
+    def write_file(self, option):
+        """
+        Overwrites the indicated file in the parameter option with the content
+        stored in the shelf list.
+
+        Parameters
+        ----------
+        option : int
+            Indicates the file to be overwritten. It takes values from 1 to 4.
+
+        Returns
+        -------
+        None.
+
+        """
+        import os
+        splitted_dir = os.getcwd().split("\\")
+        if splitted_dir[len(splitted_dir) - 1] != "mrcpag_files_temp":
+            os.chdir("../mrcpag_files_temp")
+        file_names = os.listdir()
+        # Note for the last version with mrcpag_files as directory this should
+        # be changed, since there will be another file with the git info.
+        if option == 1:
+            index = 3
+        elif option == 2:
+            index = 0
+        elif option == 3:
+            index = 1
+        elif option == 4:
+            index = 2
         
-        
+        with open(file_names[index], "w") as file:
+            for i in range(0, self.get_n_elements()):
+                if self.__shelf[i].get_has_sub1():
+                    file.write(self.__shelf[i].get_subject1())
+                    file.write("\n")
+                if self.__shelf[i].get_has_sub2():
+                    file.write(self.__shelf[i].get_subject2())
+                    file.write("\n")
+                file.write(self.__shelf[i].get_title())
+                file.write("\n")
+                file.write(str(self.__shelf[i].get_current_p()))
+                file.write("\n")
+                file.write(str(self.__shelf[i].get_total_p()))
+                file.write("\n")
+                file.write(self.__shelf[i].get_file_path())
+                file.write("\n")
+                
         
         
         
