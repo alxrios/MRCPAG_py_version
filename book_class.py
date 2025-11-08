@@ -195,7 +195,55 @@ class bookClass:
         """
         return self.__file_path
 
+    def get_subject1(self):
+        """
+        Returns the value of subject1.
 
+        Returns
+        -------
+        str
+            Value stored in the variable subject1.
+
+        """
+        return self.__subject1
+    
+    def get_subject2(self):
+        """
+        Returns the value of subject2.
+
+        Returns
+        -------
+        str
+            Value stored in the variable subject2.
+
+        """
+        return self.__subject2
+    
+    def get_has_sub1(self):
+        """
+        Returns the value of has_sub1
+
+        Returns
+        -------
+        bool
+            True if subject1 has content different than the empty string, 
+            and False otherwise.
+
+        """
+        return self.__has_sub1
+
+    def get_has_sub2(self):
+        """
+        Returns the value of has_sub2
+
+        Returns
+        -------
+        bool
+            True if subject2 has content different than the empty string, 
+            and False otherwise.
+
+        """
+        return self.__has_sub2
 
 
 
