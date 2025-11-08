@@ -42,7 +42,7 @@ class shelfClass:
             self.__n_elements = new_n_elements
             
     
-    def add_book_console(self, b_title = "", b_current_p = 0, b_total_p = 1, b_url = "", append = True, index = 0):
+    def add_book(self, b_title = "", b_current_p = 0, b_total_p = 1, b_url = "", append = True, index = 1):
         """
         Adds a new book with the data passed through the parameters.
 
@@ -77,10 +77,11 @@ class shelfClass:
         else:
             # The index in which the new book is desired to be must be between
             # the current size of the list.
-            if index < self.get_n_elements():
-                self.__shelf[index] = book_class.bookClass(b_title,
+            index -= 1 # The indexes the user will see start from 1.
+            if index >= 0 and index < self.get_n_elements():
+                self.__shelf.insert(index, book_class.bookClass(b_title,
                                                            b_current_p, 
-                                                           b_total_p, b_url)
+                                                           b_total_p, b_url))
                 
     def print_shelf(self):
         """
