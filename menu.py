@@ -1,5 +1,6 @@
 
 import shelf_class
+import book_class
 
 # TO DO: Add another option to option menu that ask the user to change file.
 #        Another function and option to move a book inside the current shelf.
@@ -21,7 +22,8 @@ class menuClass:
     3. Actualize the total number of pages of a book.
     4. Rename a book.
     5. Delete a book.
-    6. Change file.
+    6. Move a book.
+    7. Change file.
     9. End program.
 
     ..."""
@@ -132,7 +134,29 @@ class menuClass:
                 shelf.delete_book(book_index)
                 shelf.write_file(option_file)
                 option_menu = self.__ask_option_menu()
-
+            
+            elif option_menu == 6:
+                origin = self.__check_book_index("Index of the book to be moved: ", shelf.get_n_elements())
+                destination = self.__check_book_index("Destination of the book to be moved: ", shelf.get_n_elements())
+                aux_book = book_class.bookClass(shelf.get_book_title(destination), 
+                                                shelf.get_book_current_p(destination),
+                                                shelf.get_book_total_p(destination),
+                                                shelf.get_book_file_path(destination))
+                shelf.add_book(shelf.get_book_title(origin), 
+                               shelf.get_book_current_p(origin),
+                               shelf.get_book_total_p(origin),
+                               shelf.get_book_file_path(origin),
+                               False,
+                               destination)
+                shelf.add_book(aux_book.get_title(), 
+                               aux_book.get_current_p(),
+                               aux_book.get_total_p(),
+                               aux_book.get_file_path(),
+                               False,
+                               origin)
+                shelf.write_file(option_file)
+                option_menu = self.__ask_option_menu()
+                
 
 
 
