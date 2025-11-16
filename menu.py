@@ -102,6 +102,7 @@ class menuClass:
                 shelf.write_file(option_file)
                 # Presents again the menu with the options
                 option_menu = self.__ask_option_menu()
+                
             elif option_menu == 3:
                 book_index = self.__check_book_index("Index of the book to be modified: ", shelf.get_n_elements())
                 new_total = self.__ask_new_total(shelf.get_book_current_p(book_index), book_index)
@@ -113,6 +114,19 @@ class menuClass:
                                book_index)
                 shelf.write_file(option_file)
                 option_menu = self.__ask_option_menu()
+        
+            elif option_menu == 4:
+                book_index = self.__check_book_index("Index of the book to be renamed: ", shelf.get_n_elements())
+                new_title = input("Introduce the new title: ")
+                shelf.add_book(new_title, 
+                               shelf.get_book_current_p(book_index),
+                               shelf.get_book_total_p(book_index),
+                               shelf.get_book_file_path(book_index),
+                               False,
+                               book_index)
+                shelf.write_file(option_file)
+                option_menu = self.__ask_option_menu()
+            
             elif option_menu == 5:
                 book_index = self.__check_book_index("Index of the book to be deleted: ", shelf.get_n_elements())
                 shelf.delete_book(book_index)
