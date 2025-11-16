@@ -28,7 +28,7 @@ class menuClass:
 
     ..."""
         option_keyboard = input(options_message)
-        while option_keyboard not in ["1", "2", "3", "4", "5", "6", "9"]:
+        while option_keyboard not in ["1", "2", "3", "4", "5", "6", "7", "9"]:
             option_keyboard = input(options_message)
         return int(option_keyboard)
     
@@ -155,6 +155,11 @@ class menuClass:
                                False,
                                origin)
                 shelf.write_file(option_file)
+                option_menu = self.__ask_option_menu()
+            
+            elif option_menu == 7:
+                option_file = self.__ask_file()
+                shelf.load_data(option_file)
                 option_menu = self.__ask_option_menu()
                 
 
