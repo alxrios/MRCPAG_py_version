@@ -1,7 +1,6 @@
 
 import book_class
 
-# TO SOLVE: PROBLEM, WRITE FILE DOES NOT WRITE THE LAST BOOK
 
 class shelfClass:
     def __init__(self, n_elements = 0):
@@ -79,11 +78,7 @@ class shelfClass:
         else:
             # The index in which the new book is desired to be must be between
             # the current size of the list.
-            #index -= 1 # The indexes the user will see start from 1.
             if index >= 0 and index < self.get_n_elements():
-                # self.__shelf.insert(index, book_class.bookClass(b_title,
-                #                                            b_current_p, 
-                #                                            b_total_p, b_url))
                 self.__shelf[index] = book_class.bookClass(b_title,
                                                            b_current_p, 
                                                            b_total_p, b_url)
@@ -203,7 +198,6 @@ class shelfClass:
         None.
 
         """
-        #index -= 1 # Lists start at zero but the information printed starts with 1
         if index >= 0 and index < self.get_n_elements():
             self.__shelf.pop(index)
             self.__set_n_elements(self.get_n_elements() - 1)
