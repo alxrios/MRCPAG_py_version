@@ -2,8 +2,6 @@
 import shelf_class
 import book_class
 
-# TO DO: Comment all functions.
-
 
 class menuClass:
     

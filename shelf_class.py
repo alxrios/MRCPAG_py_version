@@ -233,19 +233,17 @@ class shelfClass:
         """
         import os
         splitted_dir = os.getcwd().split("\\")
-        if splitted_dir[len(splitted_dir) - 1] != "mrcpag_files_temp":
-            os.chdir("../mrcpag_files_temp")
+        if splitted_dir[len(splitted_dir) - 1] != "mrcpag_files":
+            os.chdir("../mrcpag_files")
         file_names = os.listdir()
-        # Note for the last version with mrcpag_files as directory this should
-        # be changed, since there will be another file with the git info.
         if option == 1:
-            index = 3
+            index = 4
         elif option == 2:
-            index = 0
-        elif option == 3:
             index = 1
-        elif option == 4:
+        elif option == 3:
             index = 2
+        elif option == 4:
+            index = 3
         
         with open(file_names[index], "w") as file:
             for i in range(0, self.get_n_elements()):
