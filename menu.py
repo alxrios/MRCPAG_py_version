@@ -2,12 +2,20 @@
 import shelf_class
 import book_class
 
-# TO DO: Add another option to option menu that ask the user to change file.
-#        Another function and option to move a book inside the current shelf.
+# TO DO: Comment all functions.
+
 
 class menuClass:
     
     def __ask_file(self):
+        """
+        Asks the user which file it wants to use.
+
+        Returns
+        -------
+        None.
+
+        """
         choosen_file = input("Which file do you want to use? (1/2/3/4): ")
         while choosen_file not in ["1", "2", "3", "4"]:
             choosen_file = input("Which file do you want to use? (1/2/3/4): ")
@@ -33,6 +41,23 @@ class menuClass:
         return int(option_keyboard)
     
     def __check_book_index(self, message, num_of_books):
+        """
+        Ask the user to imput the index of a book in the shelf a checks that
+        it is an integer between 1 and the total number of books in the shelf.
+
+        Parameters
+        ----------
+        message : str
+            Message to be printed to the user.
+        num_of_books : int
+            Number of books in the shelf.
+
+        Returns
+        -------
+        ask_input : int
+            Book's index introduced by the user minus one.
+
+        """
         success = False
         ask_input = input(message)
         while not success:
@@ -52,9 +77,42 @@ class menuClass:
         return ask_input
     
     def __ask_new_current_p(self, total):
+        """
+        Aks the user to introduce the new current page of a book, and checks
+        if it's a valid value.
+
+        Parameters
+        ----------
+        total : int
+            Total number of pages of the book.
+
+        Returns
+        -------
+        int
+            New current page introduced by the user.
+
+        """
         return self.__check_book_index("Introduce the new current page: ", total) + 1
     
     def __ask_new_total(self, current_page, book_index):
+        """
+        Asks the user to introduce the new total number of pages and checks if
+        it can be a correct cipher.
+
+        Parameters
+        ----------
+        current_page : int
+            Current page for the book. The new total given by the user can be
+            less than this cipher.
+        book_index : int
+            Location of the book in the shelf.
+
+        Returns
+        -------
+        new_total : int
+            New total introduced by the user.
+
+        """
         message = "Introduce the new total of pages for the book " + str(book_index + 1) + ": "
         new_total = input(message)
         success = False
@@ -71,6 +129,14 @@ class menuClass:
         return new_total
     
     def menu_display(self):
+        """
+        Displays the menu to interact with the user.
+
+        Returns
+        -------
+        None.
+
+        """
         
         shelf = shelf_class.shelfClass()
         
