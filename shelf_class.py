@@ -4,6 +4,19 @@ import book_class
 
 class shelfClass:
     def __init__(self, n_elements = 0):
+        """
+        Class constructor.
+
+        Parameters
+        ----------
+        n_elements : int, optional
+            Number of elements in the shelf. The default is 0.
+
+        Returns
+        -------
+        None.
+
+        """
         if n_elements >= 0:
             self.__n_elements = n_elements
         else:
@@ -291,10 +304,39 @@ class shelfClass:
     
     
     def get_book_total_p(self, index):
+        """
+        Returns the total number of pages of the book located at the position
+        indicated in the parameter index.
+
+        Parameters
+        ----------
+        index : int
+            Position of the book in the shelf.
+
+        Returns
+        -------
+        int
+            Total number of pages.
+
+        """
         return self.__shelf[index].get_total_p()
         
     
     def get_book_file_path(self, index):
+        """
+        Returns the book's location in the disk.'
+
+        Parameters
+        ----------
+        index : int
+            Position of the book in the shelf.
+
+        Returns
+        -------
+        str
+            Local file path of the book.
+
+        """
         return self.__shelf[index].get_file_path()
         
         
