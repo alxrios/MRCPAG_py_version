@@ -1,6 +1,33 @@
 
 class bookClass:
     def __init__(self, title = "", current_page = 0, total_pages = 1, file_path = "", subject1 = "", subject2 = "", has_sub1 = False, has_sub2 = False):
+        """
+        Class constructor.
+
+        Parameters
+        ----------
+        title : str, optional
+            Title of the book. The default is "".
+        current_page : int, optional
+            The current page of the book. The default is 0.
+        total_pages : int, optional
+            Total number of pages. The default is 1.
+        file_path : str, optional
+            Disk location of the book. The default is "".
+        subject1 : str, optional
+            Book's subject information. The default is "".
+        subject2 : str, optional
+            Book's subject information. The default is "".
+        has_sub1 : bool, optional
+            True if book subject1 content is othter than empty string. The default is False.
+        has_sub2 : bool, optional
+            True if book subject1 content is othter than empty string. The default is False.
+
+        Returns
+        -------
+        None.
+
+        """
         self.__title = title
         self.__total_pages = total_pages
         if total_pages > 0:
