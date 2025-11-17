@@ -149,10 +149,6 @@ class menuClass:
                 option_menu = self.__ask_option_menu()
                 
             elif option_menu == 2:
-                # Note: after changing the current page file should be rewritten
-                # to save the changes.
-                # Page introduced should be less than the total number of pages.
-                #
                 # Get the index of the book to actualize its current page.
                 book_to_actualize_p = self.__check_book_index("Index of the book you want to actualize its current page: ", shelf.get_n_elements())
                 # Ask for the new current page
